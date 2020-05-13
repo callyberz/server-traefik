@@ -1,0 +1,18 @@
+# Enable ACME (Let's Encrypt): automatic SSL.
+[api]
+  dashboard = true
+  insecure = true
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+
+  [entryPoints.websecure]
+    address = ":443"
+
+[certificatesResolvers.myresolver.acme]
+  email = "grdzerohk@gmail.com"
+  storage = "acme.json"
+[certificatesResolvers.myresolver.acme.httpChallenge]
+entryPoint = "web"
+
